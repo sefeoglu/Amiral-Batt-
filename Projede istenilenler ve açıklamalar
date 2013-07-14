@@ -1,0 +1,113 @@
+Dersin Adı : Algoritma ve Programlama - I
+Proje - 3 : Amiral Battı Oyunu
+Verilme Tarihi : 19.12.2011 Pazartesi
+Kod Teslim Tarihi : 26.12.2011 Pazartesi, Saat 23:59
+Rapor Teslim Tarihi : 29.12.2011 Perşembe, Saat 16:30
+Kod Kontrol Tarihi : 29.12.2011 Perşembe öğleden sonra (saatler aynı gün ilan edilecektir.)
+Bilgisayara karşı amiral battı oyunu oynamayı sağlayan bir program istenmektedir. Oyun, NXN (N, 3<N<25 olmak üzere bir çift tamsayıdır.) büyüklüğünde kare bir savaş alanı üzerinde oynanmaktadır. Savaş alanının satırları sayılarla (1, 2, 3, 4, 5, …), sütunları ise Latin harfleriyle (A, B, C, D, E, …) gösterilmektedir. Bu alan üzerinde, N/2 adet gemi bulunmakta ve gemiler en az 2 en çok N/2+1 uzunluğunda olabilmektedir.
+Oyuncu savaş alanının bir kenarının uzunluğunu (N) ve gemilerin uzunluklarını programa girerek kendisi belirlemektedir. Gemiler, savaş alanına aşağıdaki kurallar çerçevesinde, yatay ya da dikey olarak bilgisayar tarafından rasgele yerleştirilmektedir:
+Bir geminin herhangi bir kısmı savaş alanının dışında olamaz. Bir geminin herhangi bir kısmı, başka bir gemiyle üst üste çakışamaz. Bir gemi, başka bir gemiye kuzey, güney, doğu ve batı yönlerinden temas edemez.
+Bir geminin savaş alanına yerleştirilmesi için, öncelikle rasgele bir başlangıç konumu ve yerleştirme yönü belirlenmekte, daha sonra ise geminin savaş alanına yerleştirilip yerleştirilemeyeceği kontrol edilmektedir. Eğer yerleştirilemiyorsa yeniden rasgele başlangıç konumu ve yön belirleme işlemi yapılmaktadır.
+Oyuncuya N2-U (U: gemilerin uzunluklarının toplamı) adet atış yapma hakkı verilmektedir. Oyuncu, atış yapma hakkı dolmadan gemilerin hepsini batırırsa oyunu kazanmakta, tüm atış yapma hakkını kullanmasına rağmen gemilerin hepsini batıramazsa oyunu kaybetmektedir.
+Oyuncu, atış yapmak istediği konumun koordinatlarını (satır ve sütun) vererek savaş alanına atış yapmakta ve gemileri vurmaya çalışmaktadır. Her atıştan sonra, ekranda savaş alanının son durumu görüntülenmektedir. Savaş alanının görüntülenmesinde karavana atışlar için K, isabetli atışlar için I, batık gemiler için B ve henüz atış yapılmamış konumlar için O karakteri kullanılmaktadır. Ayrıca her atıştan sonra, ekranda atışın sonucuyla ilgili bir mesaj (karavana, isabet ya da batık) ve oyuncunun kalan atış yapma hakkı da görüntülenmektedir.
+Örnek Bir Oyun:
+Savas alaninin bir kenarinin uzunlugunu giriniz:4
+1. geminin uzunlugunu giriniz:3
+2. geminin uzunlugunu giriniz:2
+Toplam atis yapma hakkiniz:11
+Oyuna basliyor...
+Atis icin satiri giriniz:1
+Atis icin sutunu giriniz:D
+ABCD
+1 OOOK
+2 OOOO
+3 OOOO
+4 OOOO
+Uzgunum, karavana, kalan atis yapma hakkiniz:10
+Atis icin satiri giriniz:1
+Atis icin sutunu giriniz:A
+ABCD
+1 IOOK
+2 OOOO
+3 OOOO
+4 OOOO
+Tebrikler, tam isabet, kalan atis yapma hakkiniz:9
+Atis icin satiri giriniz:1
+Atis icin sutunu giriniz:B
+ABCD
+1 IKOK
+2 OOOO
+3 OOOO
+4 OOOO
+Uzgunum, karavana, kalan atis yapma hakkiniz:8
+Atis icin satiri giriniz:2
+Atis icin sutunu giriniz:A
+ABCD
+1 BKOK
+2 BOOO
+3 OOOO
+4 OOOO
+Tebrikler, bir gemiyi batirdiniz, kalan atis yapma hakkiniz:7
+Atis icin satiri giriniz:2
+Atis icin sutunu giriniz:C
+ABCD
+1 BKOK
+2 BOKO
+3 OOOO
+4 OOOO
+Uzgunum, karavana, kalan atis yapma hakkiniz:6
+Atis icin satiri giriniz:4
+Atis icin sutunu giriniz:B
+ABCD
+1 BKOK
+2 BOKO
+3 OOOO
+4 OIOO
+Tebrikler, tam isabet, kalan atis yapma hakkiniz:5
+Atis icin satiri giriniz:4
+Atis icin sutunu giriniz:C
+ABCD
+1 BKOK
+2 BOKO
+3 OOOO
+4 OIIO
+Tebrikler, tam isabet, kalan atis yapma hakkiniz:4
+Atis icin satiri giriniz:4
+Atis icin sutunu giriniz:D
+ABCD
+1 BKOK
+2 BOKO
+3 OOOO
+4 OIIK
+Uzgunum, karavana, kalan atis yapma hakkiniz:3
+Atis icin satiri giriniz:4
+Atis icin sutunu giriniz:A
+ABCD
+1 BKOK
+2 BOKO
+3 OKOO
+4 BBBK
+Tebrikler, bir gemiyi batirdiniz, kalan atis yapma hakkiniz:2
+Tebrikler, oyunu kazandınız!
+Notlar:
+1. Veri girişleri sırasında, kullanıcının belirtilen kısıtlara uygun olarak giriş yapması sağlanmalıdır.
+2. Programda iki boyutlu dizilerin kullanılması ve programın fonksiyonlardan oluşması beklenmektedir.
+3. Programınızın daha kolay test edilebilmesi ve değerlendirme sırasında daha kolay kontrol edilebilmesi için, rasgele sayı üretilen yerlerde kullanıcıdan veri istenebilir.
+Raporda bulunması gerekenler: Kapak (dersin adı, proje numarası ve adı, öğrenci numarası ve ad-soyadı, teslim tarihi) Analiz (problemi kendi cümlelerinizle tanımlayıp açıklayınız) Tasarım (problemin çözümüne yönelik geliştirdiğiniz program ve her altprogram için; altprogramın prototipini yazıp ne yaptığını açıklayınız, programda/altprogramda kullanılan veri yapılarını (dizileri) yazıp kullanım amaçlarını açıklayınız, programın/altprogramın algoritmasını yazınız) Programcı Kataloğu (analiz, tasarım, gerçekleştirim, test ve raporlama için harcadığınız süreleri yazınız, kaynak kodun çıktısını ekleyiniz) Kullanıcı Kataloğu (programın kullanım kılavuzunu ekran görüntüleri de kullanarak hazırlayınız, varsa programdaki kısıtlamaları belirtiniz)
+DİKKAT EDİLMESİ GEREKEN NOKTALAR:
+Projenin Teslim Edilmesi:
+1. Proje, 2 kişilik gruplar halinde yapılacaktır.
+2. Kaynak kod dosyası (.c uzantılı), adı grup üyelerinin öğrenci numaralarının alt çizgi karakteri ile birleşiminden (örneğin 05090004219_05090004235.c) oluşacak şekilde, grup üyelerinden birisi tarafından http://sorubank.ege.edu.tr/~moodle web sitesindeki ilgili ders sayfası kullanılarak sisteme yüklenmelidir.
+3. Kaynak kod dosyası, son teslim tarihi geçmediği sürece sisteme tekrar tekrar yüklenebilecektir, ancak sistemde sadece en son yüklenen dosyanın saklandığı unutulmamalıdır.
+4. Kaynak kod tesliminde en fazla 2 günlük gecikmeler kabul edilecek, ancak son teslim tarihinden sonraki her gün için proje notunda %20 kesinti yapılacaktır.
+5. Rapor, bilgisayar çıktısı olarak, ilgili Öğretim Üyesi ya da Araştırma Görevlileri’nden herhangi birisine teslim edilmelidir.
+6. Kod kontrolü sırasında, grup üyelerinin tümü hazır bulunmalıdır.
+Projenin Değerlendirilmesi:
+1. Projenin değerlendirmesinde; programın doğru ve eksiksiz çalışmasının yanında etkinlik ve yapısal programlama ilkelerine uygunluk Global değişken kullanılmaması ve fonksiyon kullanımı özellikle önemlidir. Buna göre puanlama şu şekildedir:
+– Girintili yazım stili, anlamlı değişken isimleri kullanma, açıklamalar: 5 puan
+– Etkinlik (gereksiz işlemlerden kaçınma): 5 puan
+– Fonksiyon kullanımı: 10 puan
+– Doğru çalışma: 50 puan
+– Rapor: 20 puan
+– Kod kontrolü sırasındaki kişisel performans: 10 puan
+2. Kopya çekildiği tespit edildiğinde, çeken ve çektiren kişiler projeden sıfır alacaktır.
