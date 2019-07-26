@@ -1,2 +1,4 @@
-Amiral-Batt-
+
+Admiral Sank
 ============
+Used C programming language
